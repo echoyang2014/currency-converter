@@ -39,17 +39,17 @@
 
     <form:form method="POST" modelAttribute="currencyExchange" class="form-signin">
         <h2 class="form-signin-heading">Get Exchange Rate</h2>
-        <spring:bind path="from">
+        <spring:bind path="fromCode">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="from" class="form-control" placeholder="From"
+                <form:input type="text" path="fromCode" class="form-control" placeholder="From"
                             autofocus="true"></form:input>
-                <form:errors path="from"></form:errors>
+                <form:errors path="fromCode"></form:errors>
             </div>
         </spring:bind>
-        <spring:bind path="to">
+        <spring:bind path="toCode">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="to" class="form-control" placeholder="To"></form:input>
-                <form:errors path="to"></form:errors>
+                <form:input type="text" path="toCode" class="form-control" placeholder="To"></form:input>
+                <form:errors path="toCode"></form:errors>
             </div>
         </spring:bind>
         <button class="btn btn-lg btn-primary" type="submit">Get Rate</button>
@@ -69,8 +69,8 @@
                     <tr class="currencyHistoryRate" id="${currencyExchange.id}" onclick="setUpdateForm('${currencyExchange.id}');">
                         <td><c:out value="${currencyExchange.fromCode}"/></td>
                         <td><c:out value="${currencyExchange.toCode}"/></td>
-                        <td><c:out value="${currencyExchange.toCode}"/></td>
-                        <td><c:out value="${currencyExchange.fromCode}"/></td>
+                        <td><c:out value="${currencyExchange.displayRate}"/></td>
+                        <td><c:out value="${currencyExchange.displayExchangeDate}"/></td>
                     </tr>
                 </c:forEach>
             </table>

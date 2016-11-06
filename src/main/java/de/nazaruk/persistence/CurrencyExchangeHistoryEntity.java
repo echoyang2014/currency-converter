@@ -32,6 +32,6 @@ public class CurrencyExchangeHistoryEntity {
 
     @Transient
     public String getDisplayExchangeDate() {
-        return new SimpleDateFormat("DD-MM-YYYY").format(getExchangeDate());
+        return new SimpleDateFormat("dd-MM-YYYY").format(getExchangeDate());
     }
 }

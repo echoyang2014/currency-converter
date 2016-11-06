@@ -51,8 +51,8 @@ public class CurrencyController {
             BindingResult bindingResult, Model model) {
         //TODO get actual currency rate
 
-//        currencyExchange.setRate(new BigDecimal(1.23));
-//        currencyExchange.setExchangeDate(new Date());
+        currencyExchange.setRate(new BigDecimal(1.23));
+        currencyExchange.setExchangeDate(new Date());
         currencyExchange.setUsername(securityService.findLoggedInUsername());
 
         currencyService.saveCurrencyExchange(currencyExchange);
