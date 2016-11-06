@@ -1,7 +1,7 @@
 package de.nazaruk.services.impl;
 
-import de.nazaruk.entity.CurrencyExchangeHistoryEntity;
-import de.nazaruk.entity.CurrencyExchangeHistoryRepository;
+import de.nazaruk.persistence.CurrencyExchangeHistoryEntity;
+import de.nazaruk.persistence.CurrencyExchangeHistoryRepository;
 import de.nazaruk.services.CurrencyService;
 import de.nazaruk.services.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,8 @@ public class CurrencyServiceImpl implements CurrencyService {
     public List<CurrencyExchangeHistoryEntity> getLastCurrencyExchanges() {
         String loggedInUsername = securityService.findLoggedInUsername();
         if (!StringUtils.isEmpty(loggedInUsername)) {
-            return currencyExchangeHistoryRepository.findTop10ByUsername(loggedInUsername);
+            return currencyExchangeHistoryRepository.findAll();
+//            return currencyExchangeHistoryRepository.findTop10ByUsername(loggedInUsername);
         }
 
         return Collections.emptyList();

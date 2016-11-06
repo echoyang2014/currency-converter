@@ -1,7 +1,7 @@
 package de.nazaruk.services.impl;
 
-import de.nazaruk.entity.UserEntity;
-import de.nazaruk.entity.UserRepository;
+import de.nazaruk.persistence.UserEntity;
+import de.nazaruk.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

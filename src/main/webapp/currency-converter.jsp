@@ -67,10 +67,10 @@
 
                 <c:forEach items="${lastCurrencyExchanges}" var="currencyExchange">
                     <tr class="currencyHistoryRate" id="${currencyExchange.id}" onclick="setUpdateForm('${currencyExchange.id}');">
-                        <td><c:out value="${currencyExchange.from}"/></td>
-                        <td><c:out value="${currencyExchange.to}"/></td>
-                        <td><c:out value="${currencyExchange.displayRate}"/></td>
-                        <td><c:out value="${currencyExchange.displayExchangeDate}"/></td>
+                        <td><c:out value="${currencyExchange.fromCode}"/></td>
+                        <td><c:out value="${currencyExchange.toCode}"/></td>
+                        <td><c:out value="${currencyExchange.toCode}"/></td>
+                        <td><c:out value="${currencyExchange.fromCode}"/></td>
                     </tr>
                 </c:forEach>
             </table>

@@ -1,6 +1,6 @@
 package de.nazaruk.services;
 
-import de.nazaruk.entity.CurrencyExchangeHistoryEntity;
+import de.nazaruk.persistence.CurrencyExchangeHistoryEntity;
 
 import java.util.List;
 

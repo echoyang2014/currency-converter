@@ -1,6 +1,6 @@
 package de.nazaruk.services;
 
-import de.nazaruk.entity.UserEntity;
+import de.nazaruk.persistence.UserEntity;
 
 import java.util.List;
 

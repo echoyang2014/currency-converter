@@ -1,11 +1,11 @@
 package de.nazaruk.controller;
 
-import de.nazaruk.entity.CurrencyExchangeHistoryEntity;
-import de.nazaruk.entity.UserEntity;
+import de.nazaruk.persistence.CurrencyExchangeHistoryEntity;
+import de.nazaruk.persistence.UserEntity;
 import de.nazaruk.services.CurrencyService;
 import de.nazaruk.services.SecurityService;
 import de.nazaruk.services.UserService;
-import de.nazaruk.services.UserValidator;
+import de.nazaruk.services.impl.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,8 +51,8 @@ public class CurrencyController {
             BindingResult bindingResult, Model model) {
         //TODO get actual currency rate
 
-        currencyExchange.setRate(new BigDecimal(1.23));
-        currencyExchange.setExchangeDate(new Date());
+//        currencyExchange.setRate(new BigDecimal(1.23));
+//        currencyExchange.setExchangeDate(new Date());
         currencyExchange.setUsername(securityService.findLoggedInUsername());
 
         currencyService.saveCurrencyExchange(currencyExchange);

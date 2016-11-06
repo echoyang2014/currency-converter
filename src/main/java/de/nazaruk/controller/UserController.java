@@ -1,9 +1,9 @@
 package de.nazaruk.controller;
 
-import de.nazaruk.entity.UserEntity;
+import de.nazaruk.persistence.UserEntity;
 import de.nazaruk.services.SecurityService;
 import de.nazaruk.services.UserService;
-import de.nazaruk.services.UserValidator;
+import de.nazaruk.services.impl.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.List;
 
 /**
  * Created by nazaruk on 11/5/16.
