@@ -11,5 +11,5 @@ public interface CurrencyService {
 
     List<CurrencyExchangeHistoryEntity> getLastCurrencyExchanges();
 
-    void saveCurrencyExchange(CurrencyExchangeHistoryEntity currencyExchangeHistoryEntity);
+    void requestExchangeRate(String from, String to);
 }
