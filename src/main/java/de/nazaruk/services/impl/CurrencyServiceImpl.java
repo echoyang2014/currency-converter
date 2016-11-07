@@ -49,6 +49,8 @@ public class CurrencyServiceImpl implements CurrencyService {
         BigDecimal exchangeRate = getExternalExchangeRate(from, to);
 
         CurrencyExchangeHistoryEntity history = new CurrencyExchangeHistoryEntity();
+        history.setFromCode(from);
+        history.setToCode(to);
         history.setRate(exchangeRate);
         history.setExchangeDate(new Date());
         history.setUsername(securityService.findLoggedInUsername());
