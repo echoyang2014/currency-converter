@@ -45,11 +45,6 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public void saveCurrencyExchange(CurrencyExchangeHistoryEntity currencyExchangeHistoryEntity) {
-        currencyExchangeHistoryRepository.save(currencyExchangeHistoryEntity);
-    }
-
-    @Override
     public void requestExchangeRate(String from, String to) {
         BigDecimal exchangeRate = getExternalExchangeRate(from, to);
 
