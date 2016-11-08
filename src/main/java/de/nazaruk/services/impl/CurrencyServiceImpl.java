@@ -32,9 +32,9 @@ public class CurrencyServiceImpl implements CurrencyService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CurrencyServiceImpl.class);
 
-    public static final String GET_LIVE_CURRENCY_URI = "http://apilayer.net/api/live?access_key=b7670ad620a918606c689e7063b99316&currencies=%s,%s&format=1";
-    public static final String GET_HISTORICAL_CURRENCY_URI = "http://apilayer.net/api/historical?access_key=b7670ad620a918606c689e7063b99316&currencies=%s,%s&format=1&date=%s";
-    public static final String DEFAULT_SOURCE = "USD";
+    private static final String GET_LIVE_CURRENCY_URI = "http://apilayer.net/api/live?access_key=b7670ad620a918606c689e7063b99316&currencies=%s,%s&format=1";
+    private static final String GET_HISTORICAL_CURRENCY_URI = "http://apilayer.net/api/historical?access_key=b7670ad620a918606c689e7063b99316&currencies=%s,%s&format=1&date=%s";
+    private static final String DEFAULT_SOURCE = "USD";
 
     @Autowired
     private SecurityService securityService;
