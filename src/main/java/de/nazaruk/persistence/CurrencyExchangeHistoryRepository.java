@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface CurrencyExchangeHistoryRepository extends JpaRepository<CurrencyExchangeHistoryEntity, Long> {
 
-    List<CurrencyExchangeHistoryEntity> findTop10ByUsername(String username);
+    List<CurrencyExchangeHistoryEntity> findTop10ByUsernameOrderByIdDesc(String username);
 }

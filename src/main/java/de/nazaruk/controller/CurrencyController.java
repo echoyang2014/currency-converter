@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,6 +22,18 @@ public class CurrencyController {
 
     @Autowired
     private CurrencyService currencyService;
+
+    @ModelAttribute("currencies")
+    public List<String> currencies() {
+        List<String> currencies = new ArrayList<String>();
+        currencies.add("EUR");
+        currencies.add("AUD");
+        currencies.add("GBP");
+        currencies.add("JPY");
+        currencies.add("USD");
+        currencies.add("UAH");
+        return currencies;
+    }
 
     @RequestMapping("/")
     public String currencyConverter() {
@@ -36,10 +50,12 @@ public class CurrencyController {
     }
 
     @RequestMapping(value = "/currency-converter", method = RequestMethod.POST)
-    public String currencyConverter(@ModelAttribute("exchangeRateRequest") ExchangeRateRequest exchangeRateRequest,
+    public String currencyConverter(@ModelAttribute("exchangeRateRequest") ExchangeRateRequest request,
             BindingResult bindingResult, Model model) {
-        currencyService.requestExchangeRate(exchangeRateRequest.getFrom(), exchangeRateRequest.getTo());
-
+        BigDecimal exchangeRate = currencyService.requestExchangeRate(request.getFrom(), request.getTo(), request.getDate());
+        if (exchangeRate == null) {
+            return "currency-converter";
+        }
         return "redirect:/currency-converter";
     }
 

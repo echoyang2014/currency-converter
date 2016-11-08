@@ -67,3 +67,12 @@ a.links {
 .currencyHistoryRate {
     color: black;
 }
+
+.currency-title {
+    width: 70px;
+    display: inline-table;
+}
+
+.form-group {
+    font-size: 18px;
+}

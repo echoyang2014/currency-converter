@@ -2,6 +2,8 @@ package de.nazaruk.services;
 
 import de.nazaruk.persistence.CurrencyExchangeHistoryEntity;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,5 +13,5 @@ public interface CurrencyService {
 
     List<CurrencyExchangeHistoryEntity> getLastCurrencyExchanges();
 
-    void requestExchangeRate(String from, String to);
+    BigDecimal requestExchangeRate(String from, String to, Date date);
 }

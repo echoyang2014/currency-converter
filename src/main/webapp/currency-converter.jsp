@@ -38,18 +38,22 @@
     </c:if>
 
     <form:form method="POST" modelAttribute="exchangeRateRequest" class="form-signin">
-        <h2 class="form-signin-heading">Get Exchange Rate</h2>
         <spring:bind path="from">
             <div class="form-group">
-                <form:input type="text" path="from" class="form-control" placeholder="From"
-                            autofocus="true"></form:input>
+                <span class="currency-title"> From</span><form:select path="from" items="${currencies}"/>
             </div>
         </spring:bind>
         <spring:bind path="to">
-            <div class="form-group}">
-                <form:input type="text" path="to" class="form-control" placeholder="To"></form:input>
+            <div class="form-group">
+                <span class="currency-title"> To</span><form:select path="to" items="${currencies}"/>
             </div>
         </spring:bind>
+        <spring:bind path="date">
+            <div class="form-group">
+                <span class="currency-title"> Date</span><form:input type="date" path="date" />
+            </div>
+        </spring:bind>
+
         <button class="btn btn-lg btn-primary" type="submit">Get Rate</button>
     </form:form>
 
