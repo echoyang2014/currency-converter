@@ -44,7 +44,10 @@ public class CurrencyController {
     public String currencyConverter(Model model) {
         List<CurrencyExchangeHistoryEntity> currencyExchanges = currencyService.getLastCurrencyExchanges();
         model.addAttribute("lastCurrencyExchanges", currencyExchanges);
-        model.addAttribute("exchangeRateRequest", new ExchangeRateRequest());
+        ExchangeRateRequest exchangeRateRequest = new ExchangeRateRequest();
+        exchangeRateRequest.setFrom("EUR");
+        exchangeRateRequest.setTo("USD");
+        model.addAttribute("exchangeRateRequest", exchangeRateRequest);
 
         return "currency-converter";
     }
@@ -52,7 +55,7 @@ public class CurrencyController {
     @RequestMapping(value = "/currency-converter", method = RequestMethod.POST)
     public String currencyConverter(@ModelAttribute("exchangeRateRequest") ExchangeRateRequest request,
             BindingResult bindingResult, Model model) {
-        BigDecimal exchangeRate = currencyService.requestExchangeRate(request.getFrom(), request.getTo(), request.getDate());
+        BigDecimal exchangeRate = currencyService.requestExchangeRate(request.getFrom(), request.getTo(), request.getHistoryDate());
         if (exchangeRate == null) {
             return "currency-converter";
         }

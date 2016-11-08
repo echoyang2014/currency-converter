@@ -48,9 +48,9 @@
                 <span class="currency-title"> To</span><form:select path="to" items="${currencies}"/>
             </div>
         </spring:bind>
-        <spring:bind path="date">
+        <spring:bind path="historyDate">
             <div class="form-group">
-                <span class="currency-title"> Date</span><form:input type="date" path="date" />
+                <span class="currency-title"> Date</span><form:input type="date" path="historyDate" />
             </div>
         </spring:bind>
 

@@ -2,6 +2,7 @@ package de.nazaruk.controller;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -14,5 +15,7 @@ public class ExchangeRateRequest {
 
     private String from;
     private String to;
-    private Date date;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date historyDate;
 }

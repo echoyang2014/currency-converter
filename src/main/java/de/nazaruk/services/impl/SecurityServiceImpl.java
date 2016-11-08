@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,8 @@ public class SecurityServiceImpl implements SecurityService {
 
     @Override
     public String findLoggedInUsername() {
-        Object credentials = SecurityContextHolder.getContext().getAuthentication().getCredentials();
-        return credentials == null ? null : (String) credentials;
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return user == null ? null : user.getUsername();
     }
 
     @Override
