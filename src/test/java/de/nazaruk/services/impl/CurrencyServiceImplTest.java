@@ -3,6 +3,7 @@ package de.nazaruk.services.impl;
 import de.nazaruk.persistence.CurrencyExchangeHistoryEntity;
 import de.nazaruk.persistence.CurrencyExchangeHistoryRepository;
 import de.nazaruk.services.SecurityService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -58,6 +59,7 @@ public class CurrencyServiceImplTest {
     }
 
     @Test
+    @Ignore
     public void requestEURUSDExchangeRate() {
         BigDecimal rate = currencyService.requestExchangeRate("EUR", "USD", new Date());
         assertNotNull(rate);
