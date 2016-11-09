@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "USER", uniqueConstraints = @UniqueConstraint(columnNames = {"username"}))
 @Data
+@EntityListeners(TrimEntityListener.class)
 public class UserEntity {
 
     @Id

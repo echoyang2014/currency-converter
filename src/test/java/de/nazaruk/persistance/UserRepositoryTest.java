@@ -9,6 +9,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -25,6 +28,9 @@ public class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     @Test
     public void saveAndFindUser() {
         UserEntity entity = createAndSaveUserEntity();
@@ -40,6 +46,18 @@ public class UserRepositoryTest {
     public void usernameIsUnique() {
         createAndSaveUserEntity();
         createAndSaveUserEntity();
+    }
+
+    @Test
+    public void trimUsername() {
+        UserEntity entity = new UserEntity();
+        entity.setUsername("  " + USERNAME + "  ");
+        entity.setPassword(PASSWORD);
+
+        entity = userRepository.save(entity);
+        entityManager.clear();
+        assertEquals(USERNAME, userRepository.findOne(entity.getId()).getUsername());
+        assertEquals(USERNAME, userRepository.findByUsername(USERNAME).getUsername());
     }
 
     private UserEntity createAndSaveUserEntity() {
