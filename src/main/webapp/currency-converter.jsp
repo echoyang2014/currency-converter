@@ -54,7 +54,7 @@
             </div>
         </spring:bind>
 
-        <button class="btn btn-lg btn-primary" type="submit">Get Rate</button>
+        <button id="getRate" class="btn btn-lg btn-primary" type="submit">Get Rate</button>
     </form:form>
 
     <c:if test="${!empty lastCurrencyExchanges}">

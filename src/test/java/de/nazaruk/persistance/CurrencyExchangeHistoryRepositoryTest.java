@@ -1,10 +1,7 @@
 package de.nazaruk.persistance;
 
-import static org.junit.Assert.*;
-
 import de.nazaruk.persistence.CurrencyExchangeHistoryEntity;
 import de.nazaruk.persistence.CurrencyExchangeHistoryRepository;
-import de.nazaruk.persistence.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by nazaruk on 11/8/16.
