@@ -12,6 +12,6 @@ import org.junit.runner.RunWith;
         features = "src/test/resources",
         glue = {"de.nazaruk.acceptance.scenarios"}
 )
-public class RunTests {
+public class RunAcceptanceTests {
 
 }
