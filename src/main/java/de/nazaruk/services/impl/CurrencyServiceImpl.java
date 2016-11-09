@@ -9,6 +9,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -75,7 +76,7 @@ public class CurrencyServiceImpl implements CurrencyService {
         try {
             HttpClient httpClient = HttpClientBuilder.create().build();
             String uri;
-            if (date == null) {
+            if (date == null || date.after(new Date())) {
                 uri = String.format(GET_LIVE_CURRENCY_URI, from, to);
             } else {
                 uri = String.format(GET_HISTORICAL_CURRENCY_URI, from, to, new SimpleDateFormat("YYYY-MM-dd").format(date));
@@ -94,8 +95,8 @@ public class CurrencyServiceImpl implements CurrencyService {
             BigDecimal usdTo = json.getJSONObject("quotes").getBigDecimal(DEFAULT_SOURCE + to);
 
             return usdTo.divide(usdFrom, MathContext.DECIMAL32);
-        } catch (IOException e) {
-            LOGGER.error("IOException has been occurred", e);
+        } catch (IOException | JSONException e) {
+            LOGGER.error("Exception has been occurred: ", e);
             return null;
         }
     }
