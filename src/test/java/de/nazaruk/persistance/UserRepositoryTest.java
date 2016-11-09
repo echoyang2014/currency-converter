@@ -1,6 +1,5 @@
 package de.nazaruk.persistance;
 
-
 import de.nazaruk.persistence.UserEntity;
 import de.nazaruk.persistence.UserRepository;
 import org.junit.Test;
