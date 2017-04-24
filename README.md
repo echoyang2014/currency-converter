@@ -1,4 +1,4 @@
-# Zooplus task assignment Currency-Converter
+# Currency-Converter
 
 [![Build Status](https://travis-ci.org/snazaruk/Zooplus.svg?branch=master)](https://travis-ci.org/snazaruk/Zooplus)
 
